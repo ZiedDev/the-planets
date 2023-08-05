@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "New York";
+    src: url("./fonts/San Francisco/New York/NewYorkSmall-regular.otf");
+}
+
+@font-face {
+    font-family: "New York Black";
+    src: url("./fonts/San Francisco/New York/NewYorkSmall-Black.otf");
+}
+
+
+@font-face {
+    font-family: "SF Pro";
+    src: url("./fonts/San Francisco/SF Pro/SF-Pro-Display-Regular.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "SF Pro", sans-serif;
+    background-image: url(./images/stars_bg.jpg);
+    background-size: 200%;
+    color: #ffffff;
+}
+
+.header {
+    padding: 1rem 2rem;
+    border-bottom: 2pt solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: "New York Black", Times, serif;
+    font-size: 10pt;
+}
+
+.planets-selection {
+    font-family: "New York Black", Times, serif;
+    font-size: 7pt;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main {
+    display: flex;
+    gap: 2rem;
+    width: 70%;
+    margin: auto;
+    padding-top: 5rem;
+}
+
+.image {
+    border: 2pt solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    flex: 2;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.image model-viewer {
+    min-height: 100%;
+    width: auto;
+}
+
+/* .image img {
+    width: 30rem;
+    height: 30rem;
+} */
+
+.content-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.content-header {
+    font-family: "New York Black", Times, serif;
+    align-self: flex-start;
+    font-size: 30pt;
+    margin: 1.5rem 0;
+}
+
+.content {
+    word-wrap: break-word;
+    font-size: 12pt;
+}
+
+.content-source {
+    margin: 1rem 0;
+    color: rgba(207, 207, 207, 0.5);
+}
+
+.content-source a {
+    color: rgba(207, 207, 207, 0.5);
+}
+
+.structure-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.structure-buttons button {
+    font-family: "SF Pro", sans-serif;
+    border: 1pt solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12pt;
+    background-color: rgb(109, 46, 213, 0);
+    cursor: pointer;
+
+    transition: background-color 200ms ease-in-out, border 100ms ease-in-out;
+}
+
+.structure-buttons button:hover {
+    border: 1pt solid rgb(255, 255, 255);
+}
+
+.structure-buttons button:focus {
+    background-color: rgb(109, 46, 213, 1);
+}
+
+.structure-button-bullet {
+    color: rgba(255, 255, 255, 0.5);
+    padding: 0 0.5rem;
+    font-size: 10pt;
+}
+
+.info-cards {
+    margin: 2rem 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-card {
+    width: 8rem;
+    height: 3rem;
+    padding: 2rem 2.5rem;
+
+    border: 1pt solid rgba(255, 255, 255, 0.1);
+
+    font-family: "New York Black";
+    font-size: 18pt;
+}
+
+.info-card-header {
+    font-family: "SF Pro";
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10pt;
+}
+
+@media only screen and (max-width: 425px) {
+    .planets-selection {
+        display: none;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .image model-viewer {
+        min-height: 15rem;
+        width: 100%;
+    }
+
+    .info-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info-card {
+        padding: 0.6rem;
+        font-size: 15pt;
+    }
+}

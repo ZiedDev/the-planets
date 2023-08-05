@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+  <script src="script.js" defer></script>
+  <title>The Planets</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="title">
+      <h1>The Planets</h1>
+    </div>
+
+    <div class="planets-selection">
+      <h2 class="mercury" id="mercury">Mercury</h2>
+      <h2 class="venus" id="venus">Venus</h2>
+      <h2 class="earth" id="earth">Earth</h2>
+      <h2 class="mars" id="mars">Mars</h2>
+      <h2 class="jupiter" id="jupiter">Jupiter</h2>
+      <h2 class="saturn" id="saturn">Saturn</h2>
+      <h2 class="uranus" id="uranus">Uranus</h2>
+      <h2 class="neptune" id="neptune">Neptune</h2>
+      <h2 class="pluto" id="pluto">Pluto</h2>
+    </div>
+  </header>
+
+  <section class="main">
+    <div class="image">
+      <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Rotating_earth_animated_transparent.gif"
+                alt="planet-image"> -->
+
+      <model-viewer src="./3d-models/earth.glb" alt="VR Headset" auto-rotate camera-controls ar
+        ios-src="./3d-models/earth/earth.glb"></model-viewer>
+    </div>
+
+    <div class="content-container">
+      <h1 class="content-header" id="content-header">Earth</h1>
+      <p class="content" id="content">
+        Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is
+        land with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and
+        geological history have allowed life to evolve and thrive.
+      </p>
+
+      <p class="content-source" id="content-source">Source: <a href="https://en.wikipedia.org/wiki/Earth">Wikipedia</a>
+      </p>
+
+      <div class="structure-buttons">
+        <button><span class="structure-button-bullet">01</span> Overview</button>
+        <button><span class="structure-button-bullet">02</span> Internal Structure</button>
+        <button><span class="structure-button-bullet">03</span> Surface Geography</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="info-cards" id="info-cards">
+      <div class="info-card" id="info-card1">
+        <p class="info-card-header">Length of day</p>
+        <p>24 hours</p>
+      </div>
+      <div class="info-card" id="info-card2">
+        <p class="info-card-header">Length of year</p>
+        <p>365 days</p>
+      </div>
+      <div class="info-card" id="info-card3">
+        <p class="info-card-header">Gravity</p>
+        <p>9.8 m/s<sup>2</sup></p>
+      </div>
+      <div class="info-card" id="info-card4">
+        <p class="info-card-header">Average Temperature</p>
+        <p>15<sup>°</sup>C</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
