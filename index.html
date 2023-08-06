@@ -17,37 +17,84 @@
       <h1>The Planets</h1>
     </div>
 
-    <div class="planets-selection">
-      <h2 class="mercury" id="mercury">Mercury</h2>
-      <h2 class="venus" id="venus">Venus</h2>
-      <h2 class="earth" id="earth">Earth</h2>
-      <h2 class="mars" id="mars">Mars</h2>
-      <h2 class="jupiter" id="jupiter">Jupiter</h2>
-      <h2 class="saturn" id="saturn">Saturn</h2>
-      <h2 class="uranus" id="uranus">Uranus</h2>
-      <h2 class="neptune" id="neptune">Neptune</h2>
-      <h2 class="pluto" id="pluto">Pluto</h2>
+    <div class="planets-selection" id="planets-selection">
+      <h2 class="mercury" id="mercury" onclick="changeToMercury()">Mercury</h2>
+      <h2 class="venus" id="venus" onclick="changeToVenus()">Venus</h2>
+      <h2 class="earth" id="earth" onclick="changeToEarth()" style="text-decoration: 1.5pt underline;">Earth</h2>
+      <h2 class="mars" id="mars" onclick="changeToMars()">Mars</h2>
+      <h2 class="jupiter" id="jupiter" onclick="changeToJupiter()">Jupiter</h2>
+      <h2 class="saturn" id="saturn" onclick="changeToSaturn()">Saturn</h2>
+      <h2 class="uranus" id="uranus" onclick="changeToUranus()">Uranus</h2>
+      <h2 class="neptune" id="neptune" onclick="changeToNeptune()">Neptune</h2>
+      <h2 class="pluto" id="pluto" onclick="changeToPluto()">Pluto</h2>
+    </div>
+
+    <div class="hamburger" onclick="hamburgerMenu()">
+      <svg class="ham-start" id="ham-start" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+        viewBox="0 0 24 24">
+        <g fill="none" stroke="#ffffff" stroke-dasharray="24" stroke-dashoffset="24" stroke-linecap="round"
+          stroke-width="2">
+          <path d="M5 5H19">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="24;0" id="animated" />
+          </path>
+          <path d="M5 12H19">
+            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="24;0"
+              id="animated" />
+          </path>
+          <path d="M5 19H19">
+            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.2s" values="24;0"
+              id="animated" />
+          </path>
+        </g>
+      </svg>
+
+      <svg class="ham-closed" id="ham-closed" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+        viewBox="0 0 24 24">
+        <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="2">
+          <path d="M5 5L12 12L19 5">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L12 12L19 5;M5 5L12 5L19 5" />
+          </path>
+          <path d="M12 12H12">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M12 12H12;M5 12H19" />
+          </path>
+          <path d="M5 19L12 12L19 19">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 19L12 12L19 19;M5 19L12 19L19 19" />
+          </path>
+        </g>
+      </svg>
+
+      <svg class="ham-opened" id="ham-opened" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+        viewBox="0 0 24 24">
+        <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="2">
+          <path d="M5 5L12 5L19 5">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L12 5L19 5;M5 5L12 12L19 5" />
+          </path>
+          <path d="M5 12H19">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12H19;M12 12H12" />
+          </path>
+          <path d="M5 19L12 19L19 19">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 19L12 19L19 19;M5 19L12 12L19 19" />
+          </path>
+        </g>
+      </svg>
     </div>
   </header>
 
   <section class="main">
     <div class="image">
-      <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Rotating_earth_animated_transparent.gif"
-                alt="planet-image"> -->
-
-      <model-viewer src="./3d-models/earth.glb" alt="VR Headset" auto-rotate camera-controls ar
+      <model-viewer id="3d-viewer" src="./3d-models/earth-clouds.glb" alt="Earth Model" auto-rotate camera-controls ar
         ios-src="./3d-models/earth/earth.glb"></model-viewer>
     </div>
 
     <div class="content-container">
       <h1 class="content-header" id="content-header">Earth</h1>
       <p class="content" id="content">
-        Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is
-        land with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and
-        geological history have allowed life to evolve and thrive.
+        Our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet
+        in our solar system with liquid water on the surface.
       </p>
 
-      <p class="content-source" id="content-source">Source: <a href="https://en.wikipedia.org/wiki/Earth">Wikipedia</a>
+      <p class="content-source" id="content-source">Source: <a id="source-link"
+          href="https://solarsystem.nasa.gov/planets/earth" target="_blank">Nasa</a>
       </p>
 
       <div class="structure-buttons">
@@ -59,25 +106,42 @@
   </section>
 
   <section>
-    <div class="info-cards" id="info-cards">
-      <div class="info-card" id="info-card1">
+    <div class="info-cards">
+      <div class="info-card">
         <p class="info-card-header">Length of day</p>
-        <p>24 hours</p>
+        <p><span id="day-length">24 hrs.</span></p>
       </div>
-      <div class="info-card" id="info-card2">
+      <div class="info-card">
         <p class="info-card-header">Length of year</p>
-        <p>365 days</p>
+        <p><span id="year-length">365 days</span></p>
       </div>
-      <div class="info-card" id="info-card3">
+      <div class="info-card">
         <p class="info-card-header">Gravity</p>
-        <p>9.8 m/s<sup>2</sup></p>
+        <p><span id="gravity">9.8</span> m/s<sup>2</sup></p>
       </div>
-      <div class="info-card" id="info-card4">
-        <p class="info-card-header">Average Temperature</p>
-        <p>15<sup>°</sup>C</p>
+      <div class="info-card">
+        <p class="info-card-header">Avg. Temp</p>
+        <p><span id="avr-temp">15</span><sup>°</sup>C</p>
       </div>
     </div>
   </section>
+
+  <footer>
+    <a class="footer" href="https://github.com/ZiedDev" target="_blank">Zied<svg xmlns="http://www.w3.org/2000/svg"
+        width="38" height="38" viewBox="0 0 24 20">
+        <g fill="none" stroke="#53bef3" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+          <path stroke-dasharray="30" stroke-dashoffset="30"
+            d="M12 4C13.6683 4 14.6122 4.39991 15 4.5C15.5255 4.07463 16.9375 3 18.5 3C18.8438 4 18.7863 5.21921 18.5 6C19.25 7 19.5 8 19.5 9.5C19.5 11.6875 19.017 13.0822 18 14C16.983 14.9178 15.8887 15.3749 14.5 15.5C15.1506 16.038 15 17.3743 15 18C15 18.7256 15 21 15 21M12 4C10.3317 4 9.38784 4.39991 9 4.5C8.47455 4.07463 7.0625 3 5.5 3C5.15625 4 5.21371 5.21921 5.5 6C4.75 7 4.5 8 4.5 9.5C4.5 11.6875 4.98301 13.0822 6 14C7.01699 14.9178 8.1113 15.3749 9.5 15.5C8.84944 16.038 9 17.3743 9 18C9 18.7256 9 21 9 21">
+            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="30;0" />
+          </path>
+          <path stroke-dasharray="10" stroke-dashoffset="10"
+            d="M9 19C7.59375 19 6.15625 18.4375 5.3125 17.8125C4.46875 17.1875 4.21875 16.1562 3 15.5">
+            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="10;0" />
+          </path>
+        </g>
+      </svg>
+    </a>
+  </footer>
 </body>
 
 </html>

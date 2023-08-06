@@ -21,9 +21,37 @@
 
 body {
     font-family: "SF Pro", sans-serif;
-    background-image: url(./images/stars_bg.jpg);
-    background-size: 200%;
-    color: #ffffff;
+    background-image: url(./images/stars-background.jpg);
+    background-size: 100%;
+    color: aliceblue;
+}
+
+a {
+    font-family: "SF Pro";
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: #53bef3;
+
+    font-weight: bold;
+    text-shadow: 0.25rem 0.125rem 10px #0f3a4b;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 1%;
+    left: 0;
+    background-color: #53bef3;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
 }
 
 .header {
@@ -49,6 +77,14 @@ body {
     justify-content: space-between;
 }
 
+.planets-selection h2 {
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+
 .main {
     display: flex;
     gap: 2rem;
@@ -68,6 +104,7 @@ body {
 
 .image model-viewer {
     min-height: 100%;
+    border-radius: 0.9rem;
     width: auto;
 }
 
@@ -143,19 +180,19 @@ body {
 
 .info-cards {
     margin: 2rem 15%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .info-card {
-    width: 8rem;
+    /* width: 6rem; */
     height: 3rem;
-    padding: 2rem 2.5rem;
+    padding: 2rem 2rem;
 
     border: 1pt solid rgba(255, 255, 255, 0.1);
 
     font-family: "New York Black";
-    font-size: 18pt;
+    font-size: 20pt;
 }
 
 .info-card-header {
@@ -164,8 +201,65 @@ body {
     font-size: 10pt;
 }
 
-@media only screen and (max-width: 425px) {
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    font-family: "New York Black";
+    font-size: 24pt;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
     .planets-selection {
+        gap: 0.5rem;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header {
+        position: relative;
+    }
+
+    .planets-selection {
+        padding: 1rem 0;
+        display: block;
+
+        position: absolute;
+
+        background-color: #130032eb;
+        z-index: 2;
+        text-align: center;
+        top: 100%;
+        right: 0;
+        left: 0;
+    }
+
+    .planets-selection h2 {
+        height: 2rem;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .ham-start {
+        display: block;
+    }
+
+    .ham-opened,
+    .ham-closed {
         display: none;
     }
 
@@ -179,12 +273,13 @@ body {
     }
 
     .info-cards {
-        display: grid;
+        width: auto;
+        height: auto;
         grid-template-columns: 1fr 1fr;
     }
 
     .info-card {
         padding: 0.6rem;
-        font-size: 15pt;
+        font-size: 13pt;
     }
 }
